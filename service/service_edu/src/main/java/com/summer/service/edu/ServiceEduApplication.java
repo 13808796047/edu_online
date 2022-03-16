@@ -1,6 +1,5 @@
 package com.summer.service.edu;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,9 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2022/3/16 1:41
  */
 @SpringBootApplication
-@MapperScan("com.summer.service.edu.mapper")
-public class EduApplication {
+public class ServiceEduApplication {
     public static void main(String[] args) {
-        SpringApplication.run(EduApplication.class, args);
+        SpringApplication.run(ServiceEduApplication.class, args);
     }
 }
