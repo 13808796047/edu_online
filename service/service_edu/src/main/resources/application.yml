@@ -31,3 +31,9 @@ mybatis-plus:
       logic-delete-value: 1
       logic-not-delete-value: 0
 #配置swagger配置
+knife4j:
+  enable: true
+  documents:
+    - group: 2.X版本
+      name: 接口签名
+      locations: classpath:sign/*

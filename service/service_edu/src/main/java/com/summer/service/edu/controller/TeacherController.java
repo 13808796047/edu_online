@@ -3,11 +3,10 @@ package com.summer.service.edu.controller;
 
 import com.summer.service.edu.entity.Teacher;
 import com.summer.service.edu.service.TeacherService;
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -20,10 +19,9 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("service-edu/teacher")
-@Api(tags = "用户管理")
 public class TeacherController {
     // 注入service
-    @Resource
+    @Autowired
     private TeacherService teacherService;
 
     // 查询讲师表所有数据
