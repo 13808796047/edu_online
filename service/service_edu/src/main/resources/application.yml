@@ -1,6 +1,6 @@
 # 服务端口
 server:
-  port: 9527
+  port: 8081
 # 服务名
 spring:
   application:
@@ -13,27 +13,14 @@ spring:
     url: jdbc:mysql:///guli?serverTimezone=Asia/Shanghai
     username: root
     password:
-  # 返回json的全局时间格式
+    # 返回json的全局时间格式
   jackson:
-    date-format: yyyy-MM-dd HH:mm:ss
-    # 指定时间区域类型
-    timezone: GMT+8
+    date-format: yyyy-MM-dd hh:mm:ss
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+
 # mybatis日志
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  global-config:
-    db-config:
-      logic-delete-field: is_deleted
-      logic-delete-value: 1
-      logic-not-delete-value: 0
-#配置swagger配置
-knife4j:
-  enable: true
-  documents:
-    - group: 2.X版本
-      name: 接口签名
-      locations: classpath:sign/*

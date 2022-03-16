@@ -1,4 +1,4 @@
-package com.summer.service.edu.controller;
+package com.summer.service.edu.controller.admin;
 
 
 import com.summer.service.edu.entity.Teacher;
@@ -18,7 +18,7 @@ import java.util.List;
  * @since 2022-03-16
  */
 @RestController
-@RequestMapping("service-edu/teacher")
+@RequestMapping("admin/edu/teacher")
 public class TeacherController {
     // 注入service
     @Autowired
@@ -39,6 +39,7 @@ public class TeacherController {
      */
     @DeleteMapping("{id}")
     public boolean destroy(@PathVariable String id) {
+        System.out.println(id);
         return teacherService.removeById(id);
     }
 }
