@@ -33,7 +33,7 @@ public class SwaggerConfig {
     public Docket adminApiConfig() {
         return new Docket(DocumentationType.OAS_30)
                 .groupName("后台API")
-                .apiInfo(webApiInfo())
+                .apiInfo(adminApiInfo())
                 .select()
                 .paths(PathSelectors.regex("/admin/.*"))
                 .build();
@@ -41,12 +41,21 @@ public class SwaggerConfig {
 
     private ApiInfo webApiInfo() {
         return new ApiInfoBuilder()
-                .title("网站-课程中心API文档")
-                .description("本文档描述了课程中心微服务接口定义")
+                .title("前台-API文档")
+                .description("本文档描述了前台微服务接口定义")
                 .version("1.0")
                 .contact(new Contact("Summer", "http://summer.com",
                         "511391805@qq.com"))
                 .build();
     }
 
+    private ApiInfo adminApiInfo() {
+        return new ApiInfoBuilder()
+                .title("后台-API文档")
+                .description("本文档描述了后台微服务接口定义")
+                .version("1.0")
+                .contact(new Contact("Summer", "http://summer.com",
+                        "511391805@qq.com"))
+                .build();
+    }
 }

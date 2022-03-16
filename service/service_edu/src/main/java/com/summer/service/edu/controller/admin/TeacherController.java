@@ -1,13 +1,13 @@
 package com.summer.service.edu.controller.admin;
 
 
-import com.summer.service.edu.entity.Teacher;
+import com.summer.common.utils.result.R;
 import com.summer.service.edu.service.TeacherService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * <p>
@@ -17,6 +17,7 @@ import java.util.List;
  * @author Summer
  * @since 2022-03-16
  */
+@Api(tags = "讲师管理")
 @RestController
 @RequestMapping("admin/edu/teacher")
 public class TeacherController {
@@ -25,10 +26,10 @@ public class TeacherController {
     private TeacherService teacherService;
 
     // 查询讲师表所有数据
+    @ApiOperation(value = "所有讲师列表", notes = "所有讲师列表")
     @GetMapping
-    @ApiOperation("查询方法--index")
-    public List<Teacher> index() {
-        return teacherService.list(null);
+    public R index() {
+        return R.ok().data("data", teacherService.list());
     }
 
     /**
@@ -37,10 +38,10 @@ public class TeacherController {
      * @param id
      * @return boolean
      */
+    @ApiOperation(value = "根据ID删除讲师", notes = "根据ID删除讲师,逻辑删除")
     @DeleteMapping("{id}")
-    public boolean destroy(@PathVariable String id) {
-        System.out.println(id);
-        return teacherService.removeById(id);
+    public R destroy(@ApiParam(value = "讲师ID", required = true) @PathVariable String id) {
+        return teacherService.removeById(id) ? R.ok().message("删除成功") : R.error().message("删除失败");
     }
 }
 

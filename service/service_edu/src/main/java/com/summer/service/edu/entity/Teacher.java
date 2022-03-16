@@ -25,7 +25,7 @@ import lombok.experimental.Accessors;
 @ApiModel(value = "Teacher对象", description = "讲师")
 public class Teacher extends BaseEntity {
 
-    @ApiModelProperty("讲师姓名")
+    @ApiModelProperty(value = "讲师姓名", example = "张老师")
     @TableField("`name`")
     private String name;
 
